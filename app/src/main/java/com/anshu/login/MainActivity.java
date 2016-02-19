@@ -1,0 +1,44 @@
+package com.anshu.login;
+
+import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+
+public class MainActivity extends ActionBarActivity {
+
+    Button BtnLogin, BtnSignup;
+    EditText login_edtxt, pass_edtxt;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        BtnLogin = (Button) findViewById(R.id.login);
+        BtnSignup = (Button) findViewById(R.id.signup);
+        BtnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+
+        BtnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Signup.class);
+                startActivity(i);
+            }
+        });
+    }
+
+
+
+}
