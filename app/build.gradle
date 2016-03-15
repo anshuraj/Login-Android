@@ -5,8 +5,8 @@ android {
     buildToolsVersion '21.1.1'
 
     defaultConfig {
-        applicationId "com.anshu.login"
-        minSdkVersion 14
+        applicationId "com.anshu.layout_login"
+        minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -21,5 +21,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:design:22.2.1'
+    compile 'com.mcxiaoke.volley:library-aar:1.0.0'
 }

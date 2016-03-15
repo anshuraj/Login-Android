@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:gravity="center"
+    android:background="@color/brown">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="25dp"
+        android:textColor="@color/abc_primary_text_material_dark"
+        android:padding="10dp"
+        android:id="@+id/textView"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="left"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:id="@+id/signup_name"
+        android:hint="Name"
+        android:padding="10dp"
+        android:background="@color/light_brown"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:padding="10dp"
+        android:id="@+id/signup_email"
+        android:hint="E-mail"
+        android:background="@color/light_brown"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:id="@+id/signup_username"
+        android:hint="Username"
+        android:padding="10dp"
+        android:background="@color/light_brown"
+        android:layout_marginBottom="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:padding="10dp"
+        android:id="@+id/signup_password"
+        android:hint="Password"
+        android:background="@color/light_brown"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Continue"
+        android:id="@+id/btn_create_account"
+        android:background="@color/orange"
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/alReg"
+        android:id="@+id/btn_already_registered"
+        android:background="@null"
+        android:textColor="@color/abc_primary_text_material_dark"/>
+
+</LinearLayout>
