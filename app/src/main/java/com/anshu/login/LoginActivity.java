@@ -1,16 +1,17 @@
 package com.anshu.login;
 
-import android.app.Activity;
+import com.anshu.login.SessionManager;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -24,11 +25,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
 
     Button BtnLogin, BtnSignup;
     EditText login_edtxt, pass_edtxt;
     String username, password;
+
+    private SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,15 @@ public class LoginActivity extends Activity {
         BtnSignup = (Button) findViewById(R.id.signup);
         login_edtxt = (EditText) findViewById(R.id.login_username);
         pass_edtxt = (EditText) findViewById(R.id.login_password);
+
+        session = new SessionManager(getApplicationContext());
+
+        if (session.isLoggedIn()) {
+            // User is already logged in. Take him to profile activity
+            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         BtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,11 +76,15 @@ public class LoginActivity extends Activity {
                                 boolean error = jObj.getBoolean("error");
 
                                 if(!error) {
+                                    session.setLogin(true, username);
                                     Toast.makeText(getApplicationContext(), "Welcome " + jObj.getString("name"), Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                                    startActivity(intent);
+                                    finish();
 
                                 }
                                 else{
-                                    Toast.makeText(getApplicationContext(), "Error: " + jObj.getString("error_msg"), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "Error: " + jObj.getString("msg"), Toast.LENGTH_SHORT).show();
 
                                 }
 
@@ -110,6 +126,7 @@ public class LoginActivity extends Activity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), SignupActivity.class);
                 startActivity(i);
+                finish();
             }
         });
     }
