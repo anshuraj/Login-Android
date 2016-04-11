@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
     Button BtnLogin, BtnSignup;
     EditText login_edtxt, pass_edtxt;
     String username, password;
+    Toolbar mToolbar;
 
     private SessionManager session;
 
@@ -37,6 +39,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         BtnLogin = (Button) findViewById(R.id.login);
         BtnSignup = (Button) findViewById(R.id.signup);

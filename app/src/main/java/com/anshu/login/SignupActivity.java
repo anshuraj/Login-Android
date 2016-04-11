@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -30,10 +31,16 @@ public class SignupActivity extends AppCompatActivity {
     private String name, email, username, password;
     private EditText name_edtxt, username_edtxt, email_edtxt, password_edtxt;
     Button btnSignin, alReg;
+    Toolbar mToolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_signup);
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         name_edtxt = (EditText) findViewById(R.id.signup_name);
         username_edtxt = (EditText) findViewById(R.id.signup_username);
@@ -51,8 +58,8 @@ public class SignupActivity extends AppCompatActivity {
                 password = password_edtxt.getText().toString().trim();
 
                 if(username.isEmpty() && password.isEmpty() && email.isEmpty() && name.isEmpty()){
-                    Snackbar.make(findViewById(R.id.snackbarPosition), "Enter credentials", Snackbar.LENGTH_SHORT).show();
-                    //Toast.makeText(getApplicationContext(), "Enter credentials", Toast.LENGTH_SHORT).show();
+                    //Snackbar.make(findViewById(R.id.SignupSnackbarPosition), "Enter credentials", Snackbar.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Enter credentials", Toast.LENGTH_SHORT).show();
                     //Log.d("In if UNAME, PASS", username + " " + password);
                 }
                 else{
